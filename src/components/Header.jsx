@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+
 //icons
+import { FaInstagramSquare, FaLinkedin, FaGithub } from "react-icons/fa";
 import HomeIcon from "../img/home.svg";
 import Search from "../img/search.svg";
 import Tv from "../img/tv.svg";
@@ -52,6 +54,17 @@ const Header = () => {
           <span>SERIES</span>
         </a>
       </NavMenu>
+      <Contato>
+        <a href="https://www.linkedin.com/in/barbosathaissa/">
+          <FaLinkedin />
+        </a>
+        <a href="https://www.instagram.com/thaissabarbosaa/">
+          <FaInstagramSquare />
+        </a>
+        <a href="https://github.com/BarbosaThaissa">
+          <FaGithub />
+        </a>
+      </Contato>
     </Nav>
   );
 };
@@ -148,6 +161,23 @@ const NavMenu = styled.div`
 
   @media (max-width: 768px) {
     display: none;
+  }
+`;
+
+const Contato = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-top: 5px;
+
+  & > a {
+    color: #fafafa;
+    font-size: 1.8rem;
+  }
+  & > a:hover {
+    cursor: pointer;
+    color: pink;
   }
 `;
 
