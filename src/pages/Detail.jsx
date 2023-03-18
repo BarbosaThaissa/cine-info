@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const WarchList = () => {
+const Detail = () => {
   return (
     <Container>
-      <h1>WarchList page</h1>
-      <h1>WarchList page</h1>
+      <h1>Detail</h1>
+      <h1>Detail</h1>
     </Container>
   );
 };
@@ -20,4 +20,4 @@ const Container = styled.main`
   margin-bottom: 6rem;
 `;
 
-export default WarchList;
+export default Detail;

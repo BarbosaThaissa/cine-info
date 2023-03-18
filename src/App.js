@@ -8,6 +8,7 @@ import Search from "./pages/Search";
 import WatchList from "./pages/WatchList";
 import Movies from "./pages/Movies";
 import TvSeries from "./pages/TvSeries";
+import Detail from "./pages/Detail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/watchlist" element={<WatchList />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/series" element={<TvSeries />} />
+          <Route path="/detail/:id" element={<Detail />} />
         </Routes>
         <Footer />
       </Router>

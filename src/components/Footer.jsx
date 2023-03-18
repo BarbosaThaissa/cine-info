@@ -41,6 +41,14 @@ const FooterStelyd = styled.footer`
     justify-content: center;
     color: red;
   }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+
+    & > p {
+      display: none;
+    }
+  }
 `;
 const Logo = styled.a`
   padding: 0;

@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import ImgSlider from "../components/ImgSlider";
+import You from '../img/you-serie.jpg'
 
 const Movies = () => {
   return (
     <Container>
       <ImgSlider />
-      <h1>Movies page</h1>
+      <h1>Movies</h1>
+      
     </Container>
   );
 };

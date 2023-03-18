@@ -49,7 +49,7 @@ const ImgSlider = () => {
 
 const Carousel = styled(Slider)`
   margin-top: 20px;
-  max-height: 60vh;
+  max-height: 50vh;
 
   & > button {
     opacity: 0;
