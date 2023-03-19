@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import ImgTest from "../assests/ex-larga.jpg";
 
 const PopularMovies = () => {
-  
   let settings = {
     dots: false,
     infinite: false,
@@ -26,41 +25,89 @@ const PopularMovies = () => {
         <Wrap>
           <Link to={`/detail/4545`}>
             <img src={ImgTest} alt="" />
+            <Details>
+              <DetailsContent>
+                <p>2023</p>
+                <p>Pretty Little Liars</p>
+              </DetailsContent>
+            </Details>
           </Link>
         </Wrap>
         <Wrap>
           <Link to={`/detail/4545`}>
             <img src={ImgTest} alt="" />
+            <Details>
+              <DetailsContent>
+                <p>2023</p>
+                <p>Pretty Little Liars</p>
+              </DetailsContent>
+            </Details>
           </Link>
         </Wrap>
         <Wrap>
           <Link to={`/detail/4545`}>
             <img src={ImgTest} alt="" />
+            <Details>
+              <DetailsContent>
+                <p>2023</p>
+                <p>Pretty Little Liars</p>
+              </DetailsContent>
+            </Details>
           </Link>
         </Wrap>
         <Wrap>
           <Link to={`/detail/4545`}>
             <img src={ImgTest} alt="" />
+            <Details>
+              <DetailsContent>
+                <p>2023</p>
+                <p>Pretty Little Liars</p>
+              </DetailsContent>
+            </Details>
           </Link>
         </Wrap>
         <Wrap>
           <Link to={`/detail/4545`}>
             <img src={ImgTest} alt="" />
+            <Details>
+              <DetailsContent>
+                <p>2023</p>
+                <p>Pretty Little Liars</p>
+              </DetailsContent>
+            </Details>
           </Link>
         </Wrap>
         <Wrap>
           <Link to={`/detail/4545`}>
             <img src={ImgTest} alt="" />
+            <Details>
+              <DetailsContent>
+                <p>2023</p>
+                <p>Pretty Little Liars</p>
+              </DetailsContent>
+            </Details>
           </Link>
         </Wrap>
         <Wrap>
           <Link to={`/detail/4545`}>
             <img src={ImgTest} alt="" />
+            <Details>
+              <DetailsContent>
+                <p>2023</p>
+                <p>Pretty Little Liars</p>
+              </DetailsContent>
+            </Details>
           </Link>
         </Wrap>
         <Wrap>
           <Link to={`/detail/4545`}>
             <img src={ImgTest} alt="" />
+            <Details>
+              <DetailsContent>
+                <p>2023</p>
+                <p>Pretty Little Liars</p>
+              </DetailsContent>
+            </Details>
           </Link>
         </Wrap>
       </Carousel>
@@ -70,6 +117,7 @@ const PopularMovies = () => {
 
 const Container = styled.div`
   padding: 0 0 26px;
+  margin-top: 4rem;
 `;
 
 const Title = styled.div`
@@ -125,7 +173,6 @@ const Carousel = styled(Slider)`
     height: 100%;
     width: 10vw;
     z-index: 1;
-    
 
     &:hover {
       opacity: 1;
@@ -201,6 +248,27 @@ const Wrap = styled.div`
   }
 `;
 
+const Details = styled.div`
+  transition: all 0.3s ease 0s;
+  position: absolute;
+  width: 100%;
+  height: max-content;
+  box-sizing: border-box;
+  opacity: 1;
+  bottom: 0px;
+  padding: 0 10px;
+  background-color: rgb(0, 0, 0, 40%);
+  font-weight: 700;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+const DetailsContent = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export default PopularMovies;
 

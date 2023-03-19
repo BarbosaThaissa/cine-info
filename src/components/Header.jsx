@@ -33,13 +33,6 @@ const Header = () => {
           <span>SEARCH</span>
         </a>
         <a
-          href="/watchlist"
-          className={window.location.pathname === "/watchlist" ? "active" : ""}
-        >
-          <img src={Plus} alt="home" />
-          <span>WATCHLIST</span>
-        </a>
-        <a
           href="/movies"
           className={window.location.pathname === "/movies" ? "active" : ""}
         >

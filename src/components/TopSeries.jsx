@@ -199,4 +199,22 @@ const Wrap = styled.div`
   }
 `;
 
+const Details = styled.div`
+  transition: all 0.3s ease 0s;
+  position: absolute;
+  width: 100%;
+  height: max-content;
+  box-sizing: border-box;
+  opacity: 1;
+  bottom: 0px;
+  padding: 0 10px;
+  background-color: rgb(0, 0, 0, 40%);
+  font-weight: 700;
+`;
+
+const DetailsContent = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export default TopSeries;
