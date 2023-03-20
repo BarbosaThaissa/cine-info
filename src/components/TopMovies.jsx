@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ImgTest from "../assests/ex-larga.jpg";
+import { MovieContext } from "../context/MovieContext";
 
 const TopMovies = () => {
+  const { TopMovies } = useContext(MovieContext);
+
   let settings = {
     dots: false,
     infinite: false,
@@ -22,52 +24,21 @@ const TopMovies = () => {
       </Title>
 
       <Carousel {...settings}>
-        <Wrap>
-          <Link to={`/detail/4545`}>
-            <img src={ImgTest} alt="" />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to={`/detail/4545`}>
-            <img src={ImgTest} alt="" />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to={`/detail/4545`}>
-            <img src={ImgTest} alt="" />
-            <Details>
-              <DetailsContent>
-                <p>2023</p>
-                <p>Pretty Little Liars</p>
-              </DetailsContent>
-            </Details>
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to={`/detail/4545`}>
-            <img src={ImgTest} alt="" />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to={`/detail/4545`}>
-            <img src={ImgTest} alt="" />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to={`/detail/4545`}>
-            <img src={ImgTest} alt="" />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to={`/detail/4545`}>
-            <img src={ImgTest} alt="" />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to={`/detail/4545`}>
-            <img src={ImgTest} alt="" />
-          </Link>
-        </Wrap>
+        {TopMovies.map((movie) => (
+          <Wrap key={movie.id}>
+            <Link to={`/detail/${movie.id}`}>
+              <img
+                src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                alt={movie.original_title}
+              />
+              <Details>
+                <DetailsContent>
+                  <p>{movie.original_title}</p>
+                </DetailsContent>
+              </Details>
+            </Link>
+          </Wrap>
+        ))}
       </Carousel>
     </Container>
   );
@@ -173,7 +144,7 @@ const Carousel = styled(Slider)`
 
 const Wrap = styled.div`
   border-radius: 4px;
-  cursor: pointer;
+  cursor: grab;
   position: relative;
   border: 2px solid rgba(249, 249, 249, 0.1);
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
@@ -184,7 +155,7 @@ const Wrap = styled.div`
     border-radius: 4px;
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
       rgb(0 0 0 / 73%) 0px 16px 10px -10px;
-    cursor: pointer;
+    cursor: grab;
     display: block;
     position: relative;
     padding: 4px;
@@ -216,6 +187,20 @@ const Details = styled.div`
   padding: 0 10px;
   background-color: rgb(0, 0, 0, 40%);
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    //display: none;
+    & > div > p {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    //display: none;
+    & > div > p {
+      font-size: 10px;
+    }
+  }
 `;
 
 const DetailsContent = styled.div`

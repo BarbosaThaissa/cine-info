@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import ImgSlider from "../components/ImgSlider";
-import Pretty from "../assests/ex-detales.jpg";
 import To from "../img/you-serie.jpg";
 import { Link } from "react-router-dom";
+import { MovieContext } from "../context/MovieContext";
+
+import Pretty from "../assests/ex-detales.jpg";
 
 const Movies = () => {
+  const { PopularMovies } = useContext(MovieContext);
+
   return (
     <Container>
       <ImgSlider />
@@ -16,56 +20,21 @@ const Movies = () => {
           <h1>Popular Movies</h1>
           <MoviesList>
             <ContainerWrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={To} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={To} alt="imagens" />
-                </Link>
-              </Wrap>
+              {PopularMovies.map((movie) => (
+                <Wrap key={movie.id}>
+                  <Link to={`/detail/${movie.id}`}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      alt={movie.original_title}
+                    />
+                    <Details>
+                      <DetailsContent>
+                        <p>{movie.original_title}</p>
+                      </DetailsContent>
+                    </Details>
+                  </Link>
+                </Wrap>
+              ))}
             </ContainerWrap>
           </MoviesList>
         </Content>
@@ -106,6 +75,7 @@ const MoviesList = styled.div`
 const Wrap = styled.div`
   max-height: 500px;
   max-width: 230px;
+  position: relative;
 
   & > a > img {
     width: 100%;
@@ -133,6 +103,7 @@ const ContainerWrap = styled.div`
   gap: 0.3rem;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 const Details = styled.div`
@@ -146,6 +117,20 @@ const Details = styled.div`
   padding: 0 10px;
   background-color: rgb(0, 0, 0, 40%);
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    //display: none;
+    & > div > p {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    //display: none;
+    & > div > p {
+      font-size: 10px;
+    }
+  }
 `;
 
 const DetailsContent = styled.div`

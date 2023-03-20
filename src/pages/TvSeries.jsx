@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import ImgSlider from "../components/ImgSlider";
 import Pretty from "../assests/ex-detales.jpg";
 import { Link } from "react-router-dom";
+import { SerieContext } from "../context/SerieContext";
 
 const TvSeries = () => {
+  const { PopularSerie } = useContext(SerieContext);
+
   return (
     <Container>
       <ImgSlider />
@@ -16,46 +19,21 @@ const TvSeries = () => {
           <h1>Popular Series</h1>
           <SerieList>
             <ContainerWrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                </Link>
-              </Wrap>
+              {PopularSerie.map((movie) => (
+                <Wrap key={movie.id}>
+                  <Link to={`/detail/${movie.id}`}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      alt={movie.original_name}
+                    />
+                    <Details>
+                      <DetailsContent>
+                        <p>{movie.original_name}</p>
+                      </DetailsContent>
+                    </Details>
+                  </Link>
+                </Wrap>
+              ))}
             </ContainerWrap>
           </SerieList>
         </Content>
@@ -96,6 +74,7 @@ const SerieList = styled.div`
 const Wrap = styled.div`
   max-height: 500px;
   max-width: 230px;
+  position: relative;
 
   & > a > img {
     width: 100%;
