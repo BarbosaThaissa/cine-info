@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import PlayIcon from "../img/play-icon.png";
@@ -16,29 +16,261 @@ const Detail = () => {
   const [detailResult, setDetailResult] = useState(null);
   const [detailCast, setDetailCast] = useState(null);
 
-  const getMovie = async (url) => {
-    const res = await fetch(url);
+  const getMovie = async () => {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/943822?${CastURL}&append_to_response=credits`
+    );
     const data = await res.json();
     console.log(data);
     // setMovie(data);
   };
 
-  const getCast = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data);
-    // setMovie(data);
-  };
+  //getMovie()
 
-  useEffect(() => {
-    const movieUrl = `${moviesURL}${id}?${API_KEY}&language=en-US`;
-    getMovie(movieUrl);
-  }, []);
+  const test = [
+    {
+      adult: false,
+      backdrop_path: "/2Eewgp7o5AU1xCataDmiIL2nYxd.jpg",
+      belongs_to_collection: null,
+      budget: 0,
+      genres: [
+        {
+          id: 18,
+          name: "Drama",
+        },
+        {
+          id: 36,
+          name: "History",
+        },
+      ],
+      homepage: "",
+      id: 943822,
+      imdb_id: "tt4471908",
+      original_language: "en",
+      original_title: "Prizefighter: The Life of Jem Belcher",
+      overview:
+        "At the turn of the 19th century, Pugilism was the sport of kings and a gifted young boxer fought his way to becoming champion of England.",
+      popularity: 3136.216,
+      poster_path: "/x3PIk93PTbxT88ohfeb26L1VpZw.jpg",
+      production_companies: [],
+      production_countries: [
+        {
+          iso_3166_1: "GB",
+          name: "United Kingdom",
+        },
+      ],
+      release_date: "2022-06-30",
+      revenue: 0,
+      runtime: 107,
+      spoken_languages: [
+        {
+          english_name: "English",
+          iso_639_1: "en",
+          name: "English",
+        },
+      ],
+      status: "Released",
+      tagline: "The birth of boxing.",
+      title: "Prizefighter: The Life of Jem Belcher",
+      video: false,
+      vote_average: 7.223,
+      vote_count: 56,
+      credits: {
+        cast: [
+          {
+            adult: false,
+            gender: 2,
+            id: 1075104,
+            known_for_department: "Acting",
+            name: "Matt Hookings",
+            original_name: "Matt Hookings",
+            popularity: 3.971,
+            profile_path: "/iPmO808tQE0Pm52vQFhevRGZIEn.jpg",
+            cast_id: 3,
+            character: "Jem Belcher",
+            credit_id: "621a1ea1f1b571001b468951",
+            order: 0,
+          },
+          {
+            adult: false,
+            gender: 2,
+            id: 5538,
+            known_for_department: "Acting",
+            name: "Ray Winstone",
+            original_name: "Ray Winstone",
+            popularity: 18.719,
+            profile_path: "/kDShEv6zPfArgcwXliGWKR65Mmo.jpg",
+            cast_id: 4,
+            character: "Bill Warr",
+            credit_id: "621a1eb4afa1b0001e28a8b8",
+            order: 1,
+          },
+          {
+            adult: false,
+            gender: 1,
+            id: 57449,
+            known_for_department: "Acting",
+            name: "Jodhi May",
+            original_name: "Jodhi May",
+            popularity: 13.336,
+            profile_path: "/iqVk4bZyBkIOOWxaYxiezcApwRG.jpg",
+            cast_id: 5,
+            character: "Mary Belcher",
+            credit_id: "621a1eca0e597b00412cd117",
+            order: 2,
+          },
+          {
+            adult: false,
+            gender: 2,
+            id: 20982,
+            known_for_department: "Acting",
+            name: "Marton Csokas",
+            original_name: "Marton Csokas",
+            popularity: 17.307,
+            profile_path: "/jKtjjwf8MHnUsQ3YA56LH9pJjee.jpg",
+            cast_id: 6,
+            character: "Lord Rushworth",
+            credit_id: "62acb2592f79150061fa7fd7",
+            order: 3,
+          },
+          {
+            adult: false,
+            gender: 2,
+            id: 934,
+            known_for_department: "Acting",
+            name: "Russell Crowe",
+            original_name: "Russell Crowe",
+            popularity: 38.887,
+            profile_path: "/fbzD4utSGJlsV8XbYMLoMdEZ1Fc.jpg",
+            cast_id: 7,
+            character: "Jack Slack",
+            credit_id: "62acb26d4a4bfc006172985e",
+            order: 4,
+          },
+          {
+            adult: false,
+            gender: 2,
+            id: 782,
+            known_for_department: "Acting",
+            name: "Steven Berkoff",
+            original_name: "Steven Berkoff",
+            popularity: 6.428,
+            profile_path: "/v15QPmGSTM5PGGZIhZd1KweFK5E.jpg",
+            cast_id: 9,
+            character: "Walter",
+            credit_id: "62acb36c396e970091ac82cf",
+            order: 5,
+          },
+          {
+            adult: false,
+            gender: 2,
+            id: 740,
+            known_for_department: "Acting",
+            name: "Julian Glover",
+            original_name: "Julian Glover",
+            popularity: 11.121,
+            profile_path: "/yqFGLoY6CRy9jGp3NI328VlsaIG.jpg",
+            cast_id: 8,
+            character: "Lord Ashford",
+            credit_id: "62acb35e23d278009216a262",
+            order: 6,
+          },
+        ],
+        crew: [
+          {
+            adult: false,
+            gender: 2,
+            id: 2070,
+            known_for_department: "Editing",
+            name: "Chris Gill",
+            original_name: "Chris Gill",
+            popularity: 0.75,
+            profile_path: null,
+            credit_id: "63db0bc5a6c1040093cf1e29",
+            department: "Editing",
+            job: "Editor",
+          },
+          {
+            adult: false,
+            gender: 1,
+            id: 25729,
+            known_for_department: "Production",
+            name: "Nancy Bishop",
+            original_name: "Nancy Bishop",
+            popularity: 1.024,
+            profile_path: "/lKCqfXuWuQKIqsxnK6ZNXh7v1Ev.jpg",
+            credit_id: "63db0be8955c6500a0ed1571",
+            department: "Production",
+            job: "Casting",
+          },
+          {
+            adult: false,
+            gender: 2,
+            id: 1075104,
+            known_for_department: "Acting",
+            name: "Matt Hookings",
+            original_name: "Matt Hookings",
+            popularity: 3.971,
+            profile_path: "/iPmO808tQE0Pm52vQFhevRGZIEn.jpg",
+            credit_id: "621a1e7fa88587001bf33847",
+            department: "Writing",
+            job: "Writer",
+          },
+          {
+            adult: false,
+            gender: 0,
+            id: 1752050,
+            known_for_department: "Editing",
+            name: "Jeff Cummings",
+            original_name: "Jeff Cummings",
+            popularity: 0.6,
+            profile_path: null,
+            credit_id: "63db0bbf3dc313008233f147",
+            department: "Editing",
+            job: "Editor",
+          },
+          {
+            adult: false,
+            gender: 2,
+            id: 1827463,
+            known_for_department: "Directing",
+            name: "Daniel Graham",
+            original_name: "Daniel Graham",
+            popularity: 1.388,
+            profile_path: null,
+            credit_id: "621a1e7192e55b006c299d94",
+            department: "Directing",
+            job: "Director",
+          },
+          {
+            adult: false,
+            gender: 2,
+            id: 2307079,
+            known_for_department: "Camera",
+            name: "Ben Braham Ziryab",
+            original_name: "Ben Braham Ziryab",
+            popularity: 0.6,
+            profile_path: null,
+            credit_id: "63db0ad63dc313009df219da",
+            department: "Camera",
+            job: "Director of Photography",
+          },
+        ],
+      },
+    },
+  ];
 
-  useEffect(() => {
-    const movieUrl = `${moviesURL}${id}/credits?${API_KEY}&language=en-US`;
-    getMovie(movieUrl);
-  }, []);
+  //https://api.themoviedb.org/3/movie/943822?api_key={CastURL}&append_to_response=credits
+
+  // useEffect(() => {
+  //   const movieUrl = `${moviesURL}${id}?${API_KEY}&language=en-US`;
+  //   getMovie(movieUrl);
+  // }, []);
+
+  // useEffect(() => {
+  //   const movieUrl = `${moviesURL}${id}/credits?${CastURL}&language=en-US`;
+  //   getMovie(movieUrl);
+  // }, []);
 
   //api_key=8ed200f50a6942ca5bc8b5cdec27ff22 Cast
   //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
@@ -46,49 +278,77 @@ const Detail = () => {
 
   return (
     <Container>
-      <Background>
-        <img alt="bg" src={You} />
-      </Background>
+      {test.map((movie) => (
+        <>
+          <Background>
+            <img
+              alt={movie.original_title}
+              src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+            />
+          </Background>
 
-      <Content>
-        <ContentMeta>
-          <ImageCapa>
-            <img alt="capa" src={Prety} />
-          </ImageCapa>
-          <Controls>
-            <Texts>
-              <Div>
-                <h1>Puss in Boots: The Last Wish 2022</h1>
-                <Span>
-                  <SubTitle>
-                    <span>Animation</span>
-                  </SubTitle>
-                  <SubTitle>
-                    <span>Adventure</span>
-                  </SubTitle>
-                </Span>
-                <Description>
-                  Puss in Boots discovers that his passion for adventure has
-                  taken its toll: He has burned through eight of his nine lives,
-                  leaving him with only one life left. Puss sets out on an epic
-                  journey to find the mythical Last Wish and restore his nine
-                  lives.
-                </Description>
-                <Trailer>
-                  <img src={PlayIcon} alt="" />
-                  <span>Trailer</span>
-                </Trailer>
-              </Div>
-            </Texts>
-          </Controls>
-        </ContentMeta>
+          <Content>
+            <ContentMeta>
+              <ImageCapa>
+                <img
+                  alt={movie.original_title}
+                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                />
+              </ImageCapa>
+              <Controls>
+                <Texts>
+                  <Div>
+                    <h1>{movie.original_title}</h1>
+                    <Span>
+                      {movie.genres.map((genre) => (
+                        <SubTitle key={genre.id}>
+                          <span>{genre.name}</span>
+                        </SubTitle>
+                      ))}
+                    </Span>
 
-        <div>
-          <Title>
-            <h1>Cast</h1>
-          </Title>
-        </div>
-      </Content>
+                    {/* tempo e ano de  */}
+
+                    <Description>
+                      <p>{movie.overview}</p>
+                    </Description>
+                    <Trailer>
+                      <img src={PlayIcon} alt="" />
+                      <span>Trailer</span>
+                    </Trailer>
+                  </Div>
+                </Texts>
+              </Controls>
+            </ContentMeta>
+
+            <div>
+              <Title>
+                <h1>Cast</h1>
+              </Title>
+
+              <CastList>
+                <ContainerWrap>
+                  {movie.credits.cast.map((person) => (
+                    <Wrap key={person.name}>
+                      <Link to="">
+                        <img
+                          src={`https://image.tmdb.org/t/p/original${person.profile_path}`}
+                          alt={person.name}
+                        />
+                        <DetailsCast>
+                          <CastsContent>
+                            <p>{person.name}</p>
+                          </CastsContent>
+                        </DetailsCast>
+                      </Link>
+                    </Wrap>
+                  ))}
+                </ContainerWrap>
+              </CastList>
+            </div>
+          </Content>
+        </>
+      ))}
     </Container>
   );
 };
@@ -322,19 +582,42 @@ const Title = styled.div`
   }
 `;
 
+const ContainerWrap = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  gap: 0.3rem;
+  align-items: center;
+  position: relative;
+
+  @media (max-width: 820px) {
+    justify-content: center;
+  }
+`;
+
+const CastList = styled.div`
+  max-width: 1366px;
+  //margin: auto;
+  //padding: 16px;
+  padding-right: 0;
+`;
+
 const Wrap = styled.div`
   border-radius: 4px;
   cursor: grab;
   position: relative;
   border: 2px solid rgba(249, 249, 249, 0.1);
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  width: 170px;
+  //height: 300px;
+  gap: 1rem;
 
   & > a {
     max-width: 1150px;
-    max-height: 225px;
+    //max-height: 225px;
     border-radius: 4px;
-    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
-      rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+
     cursor: grab;
     display: block;
     position: relative;
@@ -356,7 +639,7 @@ const Wrap = styled.div`
   }
 `;
 
-const Details = styled.div`
+const DetailsCast = styled.div`
   transition: all 0.3s ease 0s;
   position: absolute;
   width: 100%;
@@ -383,7 +666,7 @@ const Details = styled.div`
   }
 `;
 
-const DetailsContent = styled.div`
+const CastsContent = styled.div`
   display: flex;
   flex-direction: column;
 `;

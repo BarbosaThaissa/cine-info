@@ -26,7 +26,7 @@ const PopularSeries = () => {
       <Carousel {...settings}>
         {PopularSerie.map((movie) => (
           <Wrap key={movie.id}>
-            <Link to={`/detail/${movie.id}`}>
+            <Link to={`/detail-serie/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                 alt={movie.original_name}
