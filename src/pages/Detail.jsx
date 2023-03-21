@@ -18,7 +18,7 @@ const Detail = () => {
 
   const getMovie = async () => {
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/943822?${CastURL}&append_to_response=credits`
+      `https://api.themoviedb.org/3/movie/943822?${CastURL}&append_to_response=credits,videos`
     );
     const data = await res.json();
     console.log(data);
@@ -50,7 +50,7 @@ const Detail = () => {
       original_title: "Prizefighter: The Life of Jem Belcher",
       overview:
         "At the turn of the 19th century, Pugilism was the sport of kings and a gifted young boxer fought his way to becoming champion of England.",
-      popularity: 3136.216,
+      popularity: 2682.314,
       poster_path: "/x3PIk93PTbxT88ohfeb26L1VpZw.jpg",
       production_companies: [],
       production_countries: [
@@ -73,8 +73,8 @@ const Detail = () => {
       tagline: "The birth of boxing.",
       title: "Prizefighter: The Life of Jem Belcher",
       video: false,
-      vote_average: 7.223,
-      vote_count: 56,
+      vote_average: 7.202,
+      vote_count: 57,
       credits: {
         cast: [
           {
@@ -84,7 +84,7 @@ const Detail = () => {
             known_for_department: "Acting",
             name: "Matt Hookings",
             original_name: "Matt Hookings",
-            popularity: 3.971,
+            popularity: 3.591,
             profile_path: "/iPmO808tQE0Pm52vQFhevRGZIEn.jpg",
             cast_id: 3,
             character: "Jem Belcher",
@@ -98,7 +98,7 @@ const Detail = () => {
             known_for_department: "Acting",
             name: "Ray Winstone",
             original_name: "Ray Winstone",
-            popularity: 18.719,
+            popularity: 18.016,
             profile_path: "/kDShEv6zPfArgcwXliGWKR65Mmo.jpg",
             cast_id: 4,
             character: "Bill Warr",
@@ -112,7 +112,7 @@ const Detail = () => {
             known_for_department: "Acting",
             name: "Jodhi May",
             original_name: "Jodhi May",
-            popularity: 13.336,
+            popularity: 14.001,
             profile_path: "/iqVk4bZyBkIOOWxaYxiezcApwRG.jpg",
             cast_id: 5,
             character: "Mary Belcher",
@@ -126,7 +126,7 @@ const Detail = () => {
             known_for_department: "Acting",
             name: "Marton Csokas",
             original_name: "Marton Csokas",
-            popularity: 17.307,
+            popularity: 13.592,
             profile_path: "/jKtjjwf8MHnUsQ3YA56LH9pJjee.jpg",
             cast_id: 6,
             character: "Lord Rushworth",
@@ -140,7 +140,7 @@ const Detail = () => {
             known_for_department: "Acting",
             name: "Russell Crowe",
             original_name: "Russell Crowe",
-            popularity: 38.887,
+            popularity: 44.066,
             profile_path: "/fbzD4utSGJlsV8XbYMLoMdEZ1Fc.jpg",
             cast_id: 7,
             character: "Jack Slack",
@@ -154,7 +154,7 @@ const Detail = () => {
             known_for_department: "Acting",
             name: "Steven Berkoff",
             original_name: "Steven Berkoff",
-            popularity: 6.428,
+            popularity: 8.999,
             profile_path: "/v15QPmGSTM5PGGZIhZd1KweFK5E.jpg",
             cast_id: 9,
             character: "Walter",
@@ -168,7 +168,7 @@ const Detail = () => {
             known_for_department: "Acting",
             name: "Julian Glover",
             original_name: "Julian Glover",
-            popularity: 11.121,
+            popularity: 11.736,
             profile_path: "/yqFGLoY6CRy9jGp3NI328VlsaIG.jpg",
             cast_id: 8,
             character: "Lord Ashford",
@@ -184,7 +184,7 @@ const Detail = () => {
             known_for_department: "Editing",
             name: "Chris Gill",
             original_name: "Chris Gill",
-            popularity: 0.75,
+            popularity: 1.4,
             profile_path: null,
             credit_id: "63db0bc5a6c1040093cf1e29",
             department: "Editing",
@@ -197,7 +197,7 @@ const Detail = () => {
             known_for_department: "Production",
             name: "Nancy Bishop",
             original_name: "Nancy Bishop",
-            popularity: 1.024,
+            popularity: 1.434,
             profile_path: "/lKCqfXuWuQKIqsxnK6ZNXh7v1Ev.jpg",
             credit_id: "63db0be8955c6500a0ed1571",
             department: "Production",
@@ -210,7 +210,7 @@ const Detail = () => {
             known_for_department: "Acting",
             name: "Matt Hookings",
             original_name: "Matt Hookings",
-            popularity: 3.971,
+            popularity: 3.591,
             profile_path: "/iPmO808tQE0Pm52vQFhevRGZIEn.jpg",
             credit_id: "621a1e7fa88587001bf33847",
             department: "Writing",
@@ -236,7 +236,7 @@ const Detail = () => {
             known_for_department: "Directing",
             name: "Daniel Graham",
             original_name: "Daniel Graham",
-            popularity: 1.388,
+            popularity: 1.943,
             profile_path: null,
             credit_id: "621a1e7192e55b006c299d94",
             department: "Directing",
@@ -254,6 +254,34 @@ const Detail = () => {
             credit_id: "63db0ad63dc313009df219da",
             department: "Camera",
             job: "Director of Photography",
+          },
+        ],
+      },
+      videos: {
+        results: [
+          {
+            iso_639_1: "en",
+            iso_3166_1: "US",
+            name: "Prizefighter | 2022 | Movie Clip | Russell Crowe Boxing",
+            key: "0MoEDlOstC0",
+            site: "YouTube",
+            size: 1080,
+            type: "Clip",
+            official: true,
+            published_at: "2022-07-11T12:00:00.000Z",
+            id: "62cc31ce87a27a004f0e1a17",
+          },
+          {
+            iso_639_1: "en",
+            iso_3166_1: "US",
+            name: "UK Trailer",
+            key: "DSh3j_PtMMw",
+            site: "YouTube",
+            size: 1080,
+            type: "Trailer",
+            official: true,
+            published_at: "2022-06-17T16:04:55.000Z",
+            id: "62acac1fe92d830094607d9c",
           },
         ],
       },
@@ -307,14 +335,20 @@ const Detail = () => {
                       ))}
                     </Span>
 
-                    {/* tempo e ano de  */}
+                    <SubSpan>
+                      <span>{movie.runtime} min</span>
+                      <span>{movie.release_date}</span>
+                      <span>{movie.vote_average.toFixed(1)}</span>
+                    </SubSpan>
 
                     <Description>
                       <p>{movie.overview}</p>
                     </Description>
                     <Trailer>
-                      <img src={PlayIcon} alt="" />
-                      <span>Trailer</span>
+                      <a href="#videos">
+                        <img src={PlayIcon} alt="" />
+                        <span>Trailer</span>
+                      </a>
                     </Trailer>
                   </Div>
                 </Texts>
@@ -346,12 +380,51 @@ const Detail = () => {
                 </ContainerWrap>
               </CastList>
             </div>
+
+            <div id="videos">
+              <Title>
+                <h1>Videos</h1>
+              </Title>
+
+              <VideosIfr>
+                {movie.videos.results.map((vd) => (
+                  <div>
+                    <iframe
+                      src={`https://www.youtube.com/embed/${vd.key}?controls=0`}
+                      // width="700"
+                      // height="409"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                ))}
+              </VideosIfr>
+            </div>
           </Content>
         </>
       ))}
     </Container>
   );
 };
+
+const VideosIfr = styled.div`
+  display: flex;
+  gap: 5px;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+
+  & > div > iframe {
+    width: 550px;
+    height: 400px;
+  }
+
+  @media (max-width: 720px) {
+    & > div > iframe {
+      width: 300px;
+      height: 250px;
+    }
+  }
+`;
 
 const Container = styled.main`
   position: relative;
@@ -360,7 +433,8 @@ const Container = styled.main`
   display: block;
   top: 60px;
   padding: 0 calc(3.5vw + 5px);
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
+  background-color: rgb(0, 0, 0, 40%);
 `;
 
 const Background = styled.div`
@@ -405,6 +479,7 @@ const ContentMeta = styled.div`
 
   @media (max-width: 899px) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -436,8 +511,14 @@ const Trailer = styled.button`
   font-weight: bold;
   width: 30%;
 
-  img {
+  & > a > img {
     width: 32px;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &:hover {
@@ -449,7 +530,7 @@ const Trailer = styled.button`
     padding: 0px 12px;
     font-size: 12px;
     margin: 0px 10px 0px 0px;
-    img {
+    a > img {
       width: 25px;
     }
   }
@@ -478,6 +559,8 @@ const Div = styled.div`
 
   & > h1 {
     font-size: 3rem;
+    margin: 0;
+    margin-bottom: 10px;
 
     @media (max-width: 1029px) {
       font-size: 2rem;
@@ -508,6 +591,11 @@ const SubTitle = styled.div`
   vertical-align: middle;
   box-sizing: border-box;
   margin: 0px 0px 0px 10px;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #c1121f;
+  }
 
   @media (max-width: 768px) {
     font-size: 12px;
@@ -516,7 +604,7 @@ const SubTitle = styled.div`
 
 const Span = styled.div`
   display: flex;
-  margin-bottom: 3rem;
+  margin-bottom: 1.3rem;
 
   & > div > span {
     overflow: hidden;
@@ -527,12 +615,26 @@ const Span = styled.div`
   }
 `;
 
+const SubSpan = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  & > span {
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #a2d2ff;
+    color: black;
+  }
+`;
+
 const Description = styled.div`
   line-height: 1.4;
   font-size: 20px;
   padding: 16px 0px;
   color: rgb(249, 249, 249);
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 
   @media (max-width: 768px) {
     font-size: 14px;

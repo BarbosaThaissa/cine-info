@@ -1,28 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SearchIcon from "../img/search.svg";
 import { Link } from "react-router-dom";
 import Pretty from "../assests/ex-detales.jpg";
 
+const API_KEY = "api_key=193f93bed7f6ce72c0ffcc407532ed98";
+const CastURL = "api_key=8ed200f50a6942ca5bc8b5cdec27ff22";
+const UrlSerach = "https://api.themoviedb.org/3/search/";
+
 const Search = () => {
-  // const [movies, setMovies] = useState([]);
-  // const [searchTerm, setSearchTerm] = useState("");
+  const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [mvOurTv, setmMvOurTv] = useState("movie");
 
-  // const searchMovies = async (title) => {
-  //   const response = await fetch(`${API_URL}&s=${title}`);
-  //   const data = await response.json();
+  //https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=${title}
+  //https://api.themoviedb.org/3/search/${mvOurTv}?{CastURL}&query=${title}
 
-  //   setMovies(data.Search);
-  // };
+  const searchMovies = async (title) => {
+    let response = await fetch(
+      `${UrlSerach}${mvOurTv}?${CastURL}&query=${title}`
+    );
 
-  // useEffect(() => {
-  //   searchMovies("Annabelle");
-  // }, []);
+    if (title === "tv") {
+      response = await fetch(
+        `${UrlSerach}${mvOurTv}?${CastURL}&language=en-US&page=1&query=${title}`
+      );
+    }
+
+    const data = await response.json();
+
+    setMovies(data.results);
+  };
+
+  useEffect(() => {
+    if (mvOurTv !== "movie") {
+      searchMovies(mvOurTv);
+    }
+  }, [mvOurTv]);
+
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      console.log("Clicou");
-      //chamar a funcao de pesquisar
+      searchMovies(searchTerm);
     }
   };
 
@@ -35,8 +54,8 @@ const Search = () => {
         <div>
           <input
             placeholder="Search CineInfo"
-            //value={searchTerm}
-            //onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyDown}
           />
         </div>
@@ -44,10 +63,19 @@ const Search = () => {
           <img
             src={SearchIcon}
             alt="search"
-            //onClick={() => searchMovies(searchTerm)}
+            onClick={() => searchMovies(searchTerm)}
           />
         </button>
       </SearchContainer>
+
+      <DivButtons>
+        <ButtonM mvOurTv={mvOurTv} onClick={() => setmMvOurTv("movie")}>
+          Movie
+        </ButtonM>
+        <ButtonTv mvOurTv={mvOurTv} onClick={() => setmMvOurTv("tv")}>
+          Tv Serie
+        </ButtonTv>
+      </DivButtons>
 
       {/* {movies?.length > 0 ? (
         <div className="container">
@@ -65,56 +93,27 @@ const Search = () => {
         <Content>
           <SerieList>
             <ContainerWrap>
+              {movies.length > 1 ? (
+                <Wrap>
+                  <Link>
+                    <img src={Pretty} alt="imagens" />
+                    <Details>
+                      <DetailsContent>
+                        <p>Pretty Little Liars</p>
+                      </DetailsContent>
+                    </Details>
+                  </Link>
+                </Wrap>
+              ) : (
+                <div>
+                  <h2>No movies found</h2>
+                </div>
+              )}
               <Wrap>
                 <Link>
                   <img src={Pretty} alt="imagens" />
                   <Details>
                     <DetailsContent>
-                      <p>2023</p>
-                      <p>Pretty Little Liars</p>
-                    </DetailsContent>
-                  </Details>
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                  <Details>
-                    <DetailsContent>
-                      <p>2023</p>
-                      <p>Pretty Little Liars</p>
-                    </DetailsContent>
-                  </Details>
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                  <Details>
-                    <DetailsContent>
-                      <p>2023</p>
-                      <p>Pretty Little Liars</p>
-                    </DetailsContent>
-                  </Details>
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                  <Details>
-                    <DetailsContent>
-                      <p>2023</p>
-                      <p>Pretty Little Liars</p>
-                    </DetailsContent>
-                  </Details>
-                </Link>
-              </Wrap>
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                  <Details>
-                    <DetailsContent>
-                      <p>2023</p>
                       <p>Pretty Little Liars</p>
                     </DetailsContent>
                   </Details>
@@ -127,6 +126,35 @@ const Search = () => {
     </Container>
   );
 };
+
+const DivButtons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+`;
+
+const ButtonM = styled.button`
+  padding: 1rem;
+  text-transform: uppercase;
+  background-color: ${(props) =>
+    props.mvOurTv === "movie" ? "red" : "transparent"};
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #c1121f;
+  }
+`;
+
+const ButtonTv = styled(ButtonM)`
+  background-color: ${(props) =>
+    props.mvOurTv === "tv" ? "red" : "transparent"};
+`;
 
 const Container = styled.main`
   position: relative;
