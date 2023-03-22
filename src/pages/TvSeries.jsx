@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import ImgSlider from "../components/ImgSlider";
-import Pretty from "../assests/ex-detales.jpg";
 import { Link } from "react-router-dom";
 import { SerieContext } from "../context/SerieContext";
 

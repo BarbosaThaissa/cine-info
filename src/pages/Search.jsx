@@ -2,30 +2,21 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SearchIcon from "../img/search.svg";
 import { Link } from "react-router-dom";
-import Pretty from "../assests/ex-detales.jpg";
 
 const API_KEY = "api_key=193f93bed7f6ce72c0ffcc407532ed98";
 const CastURL = "api_key=8ed200f50a6942ca5bc8b5cdec27ff22";
-const UrlSerach = "https://api.themoviedb.org/3/search/";
+//const UrlSerach = "https://api.themoviedb.org/3/search/";
+const UrlSerach = "https://api.themoviedb.org/3/search/multi?";
 
 const Search = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [mvOurTv, setmMvOurTv] = useState("movie");
 
-  //https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=${title}
-  //https://api.themoviedb.org/3/search/${mvOurTv}?{CastURL}&query=${title}
-
   const searchMovies = async (title) => {
-    let response = await fetch(
-      `${UrlSerach}${mvOurTv}?${CastURL}&query=${title}`
+    const response = await fetch(
+      `${UrlSerach}${CastURL}&language=en-US&query=${title}&page=1&include_adult=false`
     );
-
-    if (title === "tv") {
-      response = await fetch(
-        `${UrlSerach}${mvOurTv}?${CastURL}&language=en-US&page=1&query=${title}`
-      );
-    }
 
     const data = await response.json();
 
@@ -33,11 +24,8 @@ const Search = () => {
   };
 
   useEffect(() => {
-    if (mvOurTv !== "movie") {
-      searchMovies(mvOurTv);
-    }
+    searchMovies(searchTerm);
   }, [mvOurTv]);
-
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -67,59 +55,44 @@ const Search = () => {
           />
         </button>
       </SearchContainer>
-
-      <DivButtons>
-        <ButtonM mvOurTv={mvOurTv} onClick={() => setmMvOurTv("movie")}>
-          Movie
-        </ButtonM>
-        <ButtonTv mvOurTv={mvOurTv} onClick={() => setmMvOurTv("tv")}>
-          Tv Serie
-        </ButtonTv>
-      </DivButtons>
-
-      {/* {movies?.length > 0 ? (
-        <div className="container">
-          {movies.map((movie) => (
-            <MovieCard movie={movie} />
-          ))}
-        </div>
-      ) : (
-        <div className="empty">
-          <h2>No movies found</h2>
-        </div>
-      )} */}
-
       <Div>
         <Content>
           <SerieList>
-            <ContainerWrap>
-              {movies.length > 1 ? (
-                <Wrap>
-                  <Link>
-                    <img src={Pretty} alt="imagens" />
-                    <Details>
-                      <DetailsContent>
-                        <p>Pretty Little Liars</p>
-                      </DetailsContent>
-                    </Details>
-                  </Link>
-                </Wrap>
-              ) : (
-                <div>
-                  <h2>No movies found</h2>
-                </div>
-              )}
-              <Wrap>
-                <Link>
-                  <img src={Pretty} alt="imagens" />
-                  <Details>
-                    <DetailsContent>
-                      <p>Pretty Little Liars</p>
-                    </DetailsContent>
-                  </Details>
-                </Link>
-              </Wrap>
-            </ContainerWrap>
+            {movies.length > 0 ? (
+              <ContainerWrap>
+                {movies.map((movseri) => (
+                  <Wrap key={movseri.id}>
+                    <Link
+                      to={
+                        movseri.original_title
+                          ? `/detail/${movseri.id}`
+                          : `/detail-serie/${movseri.id}`
+                      }
+                    >
+                      <img
+                        src={
+                          movseri.poster_path !== null
+                            ? `https://image.tmdb.org/t/p/original${movseri.poster_path}`
+                            : "https://via.placeholder.com/400"
+                        }
+                        alt={movseri.original_title || movseri.original_name}
+                      />
+                      <Details>
+                        <DetailsContent>
+                          <p>
+                            {movseri.original_title || movseri.original_name}
+                          </p>
+                        </DetailsContent>
+                      </Details>
+                    </Link>
+                  </Wrap>
+                ))}
+              </ContainerWrap>
+            ) : (
+              <Vazio>
+                <h2>Search for a valid movie or series</h2>
+              </Vazio>
+            )}
           </SerieList>
         </Content>
       </Div>
@@ -127,34 +100,17 @@ const Search = () => {
   );
 };
 
-const DivButtons = styled.div`
+const Vazio = styled.div`
+  width: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-`;
 
-const ButtonM = styled.button`
-  padding: 1rem;
-  text-transform: uppercase;
-  background-color: ${(props) =>
-    props.mvOurTv === "movie" ? "red" : "transparent"};
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-
-  &:hover {
-    background-color: #c1121f;
+  & > h2 {
+    text-transform: uppercase;
   }
 `;
 
-const ButtonTv = styled(ButtonM)`
-  background-color: ${(props) =>
-    props.mvOurTv === "tv" ? "red" : "transparent"};
-`;
 
 const Container = styled.main`
   position: relative;

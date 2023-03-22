@@ -4,271 +4,30 @@ import { useParams } from "react-router-dom";
 import PlayIcon from "../img/play-icon.png";
 import { Link } from "react-router-dom";
 
-import You from "../img/you-serie.jpg";
-import Prety from "../assests/ex-detales.jpg";
-
 const API_KEY = "api_key=193f93bed7f6ce72c0ffcc407532ed98";
-const CastURL = "api_key=8ed200f50a6942ca5bc8b5cdec27ff22";
-const serieURL = "https://api.themoviedb.org/3/movie/";
+const detailURL = "https://api.themoviedb.org/3/tv/";
 
 const DetailSerie = () => {
-  const getSerie = async () => {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/tv/70785?${CastURL}&append_to_response=credits,videos`
-    );
+  const [movieDet, setMovieDet] = useState([]);
+
+  const { id } = useParams();
+
+  const getSerie = async (url) => {
+    const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
-    // setMovie(data);
+
+    //console.log(data)
+    setMovieDet([data]);
   };
 
-  //getSerie()
-
-  const an = [
-    {
-      adult: false,
-      backdrop_path: "/70YdbMELM4b8x8VXjlubymb2bQ0.jpg",
-      created_by: [
-        {
-          id: 1223198,
-          credit_id: "58e43eb492514127f6026873",
-          name: "Moira Walley-Beckett",
-          gender: 1,
-          profile_path: "/nysIQz4lEMqar1Bd3gBaCzuwSde.jpg",
-        },
-      ],
-      episode_run_time: [47],
-      first_air_date: "2017-03-19",
-      genres: [
-        {
-          id: 18,
-          name: "Drama",
-        },
-        {
-          id: 10751,
-          name: "Family",
-        },
-      ],
-      homepage: "http://www.cbc.ca/anne/",
-      id: 70785,
-      in_production: false,
-      languages: ["en"],
-      last_air_date: "2019-11-24",
-      last_episode_to_air: {
-        id: 1985358,
-        name: "The Better Feeling of My Heart",
-        overview:
-          "As the students prepare to depart for Queen’s College, Gilbert takes a final chance. Marilla intervenes on Diana’s behalf. Anne embraces her future but finds that change also brings loss. Elijah returns to Avonlea. Anne has a fateful encounter in Charlottetown. Series finale.",
-        vote_average: 8.2,
-        vote_count: 8,
-        air_date: "2019-11-24",
-        episode_number: 10,
-        production_code: "",
-        runtime: 45,
-        season_number: 3,
-        show_id: 70785,
-        still_path: "/vD9TdKbzOZTFbqrlEu2JZZVtvDD.jpg",
-      },
-      name: "Anne with an E",
-      next_episode_to_air: null,
-      networks: [
-        {
-          id: 23,
-          logo_path: "/cw5WW6cc9UANam4A6o1BDua9njN.png",
-          name: "CBC Television",
-          origin_country: "CA",
-        },
-      ],
-      number_of_episodes: 27,
-      number_of_seasons: 3,
-      origin_country: ["CA"],
-      original_language: "en",
-      original_name: "Anne with an E",
-      overview:
-        "A coming-of-age story about an outsider who, against all odds and numerous challenges, fights for love and acceptance and for her place in the world. The series centers on a young orphaned girl in the late 1890’s, who, after an abusive childhood spent in orphanages and the homes of strangers, is mistakenly sent to live with an elderly woman and her aging brother. Over time, 13-year-old Anne will transform their lives and eventually the small town in which they live with her unique spirit, fierce intellect and brilliant imagination.",
-      popularity: 96.467,
-      poster_path: "/6P6tXhjT5tK3qOXzxF9OMLlG7iz.jpg",
-      production_companies: [
-        {
-          id: 88009,
-          logo_path: null,
-          name: "Northwood Entertainment",
-          origin_country: "",
-        },
-        {
-          id: 152825,
-          logo_path: null,
-          name: "Northwood Pictures",
-          origin_country: "",
-        },
-      ],
-      production_countries: [
-        {
-          iso_3166_1: "CA",
-          name: "Canada",
-        },
-      ],
-      seasons: [
-        {
-          air_date: "2017-03-19",
-          episode_count: 7,
-          id: 86320,
-          name: "Season 1",
-          overview:
-            "A young orphan's arrival in Avonlea affects the hearts and minds of everyone she meets, beginning with the pair of aging siblings who take her in.",
-          poster_path: "/lqoGVD3FCahM9faB2SWdpae9Ejt.jpg",
-          season_number: 1,
-        },
-        {
-          air_date: "2018-07-06",
-          episode_count: 10,
-          id: 104920,
-          name: "Season 2",
-          overview:
-            "Anne's beloved world of Green Gables becomes a much bigger place, with new faces and heartfelt lessons about love, loss and growing up.",
-          poster_path: "/7bjv63bF07F2SiN6PoJHYqmYRoR.jpg",
-          season_number: 2,
-        },
-        {
-          air_date: "2019-09-22",
-          episode_count: 10,
-          id: 131544,
-          name: "Season 3",
-          overview: "",
-          poster_path: "/hSjv6QkGknuJrB8LTjYFv5SPjrr.jpg",
-          season_number: 3,
-        },
-      ],
-      spoken_languages: [
-        {
-          english_name: "English",
-          iso_639_1: "en",
-          name: "English",
-        },
-      ],
-      status: "Canceled",
-      tagline: "Welcome back to Green Gables.",
-      type: "Scripted",
-      vote_average: 8.706,
-      vote_count: 4225,
-      credits: {
-        cast: [
-          {
-            adult: false,
-            gender: 1,
-            id: 1780007,
-            known_for_department: "Acting",
-            name: "Amybeth McNulty",
-            original_name: "Amybeth McNulty",
-            popularity: 13.575,
-            profile_path: "/ypkqSiS3u36Ki4KZwvRR3kbZ1IW.jpg",
-            character: "Anne Shirley",
-            credit_id: "58ced80f9251415a45027327",
-            order: 0,
-          },
-          {
-            adult: false,
-            gender: 1,
-            id: 11855,
-            known_for_department: "Acting",
-            name: "Geraldine James",
-            original_name: "Geraldine James",
-            popularity: 14.404,
-            profile_path: "/mKtJaRvLMzjwg8lyYEMxdGRmOiz.jpg",
-            character: "Marilla Cuthbert",
-            credit_id: "58d885e19251411f9006336e",
-            order: 1,
-          },
-          {
-            adult: false,
-            gender: 2,
-            id: 91600,
-            known_for_department: "Acting",
-            name: "R. H. Thomson",
-            original_name: "R. H. Thomson",
-            popularity: 11.943,
-            profile_path: "/j9RIw8mC5CpMRToDfUCzFgPGDhK.jpg",
-            character: "Matthew Cuthbert",
-            credit_id: "58d885fcc3a36812670599ea",
-            order: 2,
-          },
-          {
-            adult: false,
-            gender: 2,
-            id: 1485770,
-            known_for_department: "Acting",
-            name: "Lucas Jade Zumann",
-            original_name: "Lucas Jade Zumann",
-            popularity: 17.19,
-            profile_path: "/7ocQJdexgzKx4Yqk0qs9fChIniV.jpg",
-            character: "Gilbert Blythe",
-            credit_id: "58d88658c3a368128906300f",
-            order: 5,
-          },
-          {
-            adult: false,
-            gender: 1,
-            id: 2718335,
-            known_for_department: "Acting",
-            name: "Kiawentiio",
-            original_name: "Kiawentiio",
-            popularity: 3.249,
-            profile_path: "/zxYR9GZQ9H8cMOgoopBUtb8zrfi.jpg",
-            character: "Ka'kwet",
-            credit_id: "63b873b543250f0082e96d16",
-            order: 7,
-          },
-        ],
-        crew: [
-          {
-            adult: false,
-            gender: 1,
-            id: 1223198,
-            known_for_department: "Writing",
-            name: "Moira Walley-Beckett",
-            original_name: "Moira Walley-Beckett",
-            popularity: 2.093,
-            profile_path: "/1sRNcxMZVsVcY6NFNQzASJuR8By.jpg",
-            credit_id: "5ca76c920e0a266cf733bfb9",
-            department: "Production",
-            job: "Executive Producer",
-          },
-          {
-            adult: false,
-            gender: 1,
-            id: 236605,
-            known_for_department: "Production",
-            name: "Miranda de Pencier",
-            original_name: "Miranda de Pencier",
-            popularity: 0.732,
-            profile_path: "/78Nuks6NhRFpnmAyetAHqElFNKz.jpg",
-            credit_id: "5ca76c7e0e0a261f4133e9de",
-            department: "Production",
-            job: "Executive Producer",
-          },
-        ],
-      },
-      videos: {
-        results: [
-          {
-            iso_639_1: "en",
-            iso_3166_1: "US",
-            name: "loose adaptation",
-            key: "S5qJXYNNINo",
-            published_at: "2017-04-04T16:00:02.000Z",
-            site: "YouTube",
-            size: 360,
-            type: "Clip",
-            official: true,
-            id: "5b1a9316c3a36848fb012c38",
-          },
-        ],
-      },
-    },
-  ];
+  useEffect(() => {
+    const tvUrl = `${detailURL}${id}?${API_KEY}&append_to_response=credits,videos`;
+    getSerie(tvUrl);
+  }, []);
 
   return (
     <Container>
-      {an.map((movie) => (
+      {movieDet.map((movie) => (
         <>
           <Background>
             <img
@@ -351,10 +110,10 @@ const DetailSerie = () => {
 
               <VideosIfr>
                 {movie.videos.results.map((vd) => (
-                  <div>
+                  <div key={vd.key}>
                     <iframe
                       src={`https://www.youtube.com/embed/${vd.key}?controls=0`}
-                      frameborder="0"
+                      frameBorder="0"
                     ></iframe>
                   </div>
                 ))}

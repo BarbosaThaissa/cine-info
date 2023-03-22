@@ -4,309 +4,30 @@ import { useParams } from "react-router-dom";
 import PlayIcon from "../img/play-icon.png";
 import { Link } from "react-router-dom";
 
-import You from "../img/you-serie.jpg";
-import Prety from "../assests/ex-detales.jpg";
-
 const API_KEY = "api_key=193f93bed7f6ce72c0ffcc407532ed98";
-const CastURL = "api_key=8ed200f50a6942ca5bc8b5cdec27ff22";
-const moviesURL = "https://api.themoviedb.org/3/movie/";
+const detailURL = "https://api.themoviedb.org/3/movie/";
 
 const Detail = () => {
-  const { id } = useParams();
-  const [detailResult, setDetailResult] = useState(null);
-  const [detailCast, setDetailCast] = useState(null);
+  const [movieDet, setMovieDet] = useState([]);
 
-  const getMovie = async () => {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/movie/943822?${CastURL}&append_to_response=credits,videos`
-    );
+  const { id } = useParams();
+
+  const getMovie = async (url) => {
+    const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
-    // setMovie(data);
+
+    //console.log(data)
+    setMovieDet([data]);
   };
 
-  //getMovie()
-
-  const test = [
-    {
-      adult: false,
-      backdrop_path: "/2Eewgp7o5AU1xCataDmiIL2nYxd.jpg",
-      belongs_to_collection: null,
-      budget: 0,
-      genres: [
-        {
-          id: 18,
-          name: "Drama",
-        },
-        {
-          id: 36,
-          name: "History",
-        },
-      ],
-      homepage: "",
-      id: 943822,
-      imdb_id: "tt4471908",
-      original_language: "en",
-      original_title: "Prizefighter: The Life of Jem Belcher",
-      overview:
-        "At the turn of the 19th century, Pugilism was the sport of kings and a gifted young boxer fought his way to becoming champion of England.",
-      popularity: 2682.314,
-      poster_path: "/x3PIk93PTbxT88ohfeb26L1VpZw.jpg",
-      production_companies: [],
-      production_countries: [
-        {
-          iso_3166_1: "GB",
-          name: "United Kingdom",
-        },
-      ],
-      release_date: "2022-06-30",
-      revenue: 0,
-      runtime: 107,
-      spoken_languages: [
-        {
-          english_name: "English",
-          iso_639_1: "en",
-          name: "English",
-        },
-      ],
-      status: "Released",
-      tagline: "The birth of boxing.",
-      title: "Prizefighter: The Life of Jem Belcher",
-      video: false,
-      vote_average: 7.202,
-      vote_count: 57,
-      credits: {
-        cast: [
-          {
-            adult: false,
-            gender: 2,
-            id: 1075104,
-            known_for_department: "Acting",
-            name: "Matt Hookings",
-            original_name: "Matt Hookings",
-            popularity: 3.591,
-            profile_path: "/iPmO808tQE0Pm52vQFhevRGZIEn.jpg",
-            cast_id: 3,
-            character: "Jem Belcher",
-            credit_id: "621a1ea1f1b571001b468951",
-            order: 0,
-          },
-          {
-            adult: false,
-            gender: 2,
-            id: 5538,
-            known_for_department: "Acting",
-            name: "Ray Winstone",
-            original_name: "Ray Winstone",
-            popularity: 18.016,
-            profile_path: "/kDShEv6zPfArgcwXliGWKR65Mmo.jpg",
-            cast_id: 4,
-            character: "Bill Warr",
-            credit_id: "621a1eb4afa1b0001e28a8b8",
-            order: 1,
-          },
-          {
-            adult: false,
-            gender: 1,
-            id: 57449,
-            known_for_department: "Acting",
-            name: "Jodhi May",
-            original_name: "Jodhi May",
-            popularity: 14.001,
-            profile_path: "/iqVk4bZyBkIOOWxaYxiezcApwRG.jpg",
-            cast_id: 5,
-            character: "Mary Belcher",
-            credit_id: "621a1eca0e597b00412cd117",
-            order: 2,
-          },
-          {
-            adult: false,
-            gender: 2,
-            id: 20982,
-            known_for_department: "Acting",
-            name: "Marton Csokas",
-            original_name: "Marton Csokas",
-            popularity: 13.592,
-            profile_path: "/jKtjjwf8MHnUsQ3YA56LH9pJjee.jpg",
-            cast_id: 6,
-            character: "Lord Rushworth",
-            credit_id: "62acb2592f79150061fa7fd7",
-            order: 3,
-          },
-          {
-            adult: false,
-            gender: 2,
-            id: 934,
-            known_for_department: "Acting",
-            name: "Russell Crowe",
-            original_name: "Russell Crowe",
-            popularity: 44.066,
-            profile_path: "/fbzD4utSGJlsV8XbYMLoMdEZ1Fc.jpg",
-            cast_id: 7,
-            character: "Jack Slack",
-            credit_id: "62acb26d4a4bfc006172985e",
-            order: 4,
-          },
-          {
-            adult: false,
-            gender: 2,
-            id: 782,
-            known_for_department: "Acting",
-            name: "Steven Berkoff",
-            original_name: "Steven Berkoff",
-            popularity: 8.999,
-            profile_path: "/v15QPmGSTM5PGGZIhZd1KweFK5E.jpg",
-            cast_id: 9,
-            character: "Walter",
-            credit_id: "62acb36c396e970091ac82cf",
-            order: 5,
-          },
-          {
-            adult: false,
-            gender: 2,
-            id: 740,
-            known_for_department: "Acting",
-            name: "Julian Glover",
-            original_name: "Julian Glover",
-            popularity: 11.736,
-            profile_path: "/yqFGLoY6CRy9jGp3NI328VlsaIG.jpg",
-            cast_id: 8,
-            character: "Lord Ashford",
-            credit_id: "62acb35e23d278009216a262",
-            order: 6,
-          },
-        ],
-        crew: [
-          {
-            adult: false,
-            gender: 2,
-            id: 2070,
-            known_for_department: "Editing",
-            name: "Chris Gill",
-            original_name: "Chris Gill",
-            popularity: 1.4,
-            profile_path: null,
-            credit_id: "63db0bc5a6c1040093cf1e29",
-            department: "Editing",
-            job: "Editor",
-          },
-          {
-            adult: false,
-            gender: 1,
-            id: 25729,
-            known_for_department: "Production",
-            name: "Nancy Bishop",
-            original_name: "Nancy Bishop",
-            popularity: 1.434,
-            profile_path: "/lKCqfXuWuQKIqsxnK6ZNXh7v1Ev.jpg",
-            credit_id: "63db0be8955c6500a0ed1571",
-            department: "Production",
-            job: "Casting",
-          },
-          {
-            adult: false,
-            gender: 2,
-            id: 1075104,
-            known_for_department: "Acting",
-            name: "Matt Hookings",
-            original_name: "Matt Hookings",
-            popularity: 3.591,
-            profile_path: "/iPmO808tQE0Pm52vQFhevRGZIEn.jpg",
-            credit_id: "621a1e7fa88587001bf33847",
-            department: "Writing",
-            job: "Writer",
-          },
-          {
-            adult: false,
-            gender: 0,
-            id: 1752050,
-            known_for_department: "Editing",
-            name: "Jeff Cummings",
-            original_name: "Jeff Cummings",
-            popularity: 0.6,
-            profile_path: null,
-            credit_id: "63db0bbf3dc313008233f147",
-            department: "Editing",
-            job: "Editor",
-          },
-          {
-            adult: false,
-            gender: 2,
-            id: 1827463,
-            known_for_department: "Directing",
-            name: "Daniel Graham",
-            original_name: "Daniel Graham",
-            popularity: 1.943,
-            profile_path: null,
-            credit_id: "621a1e7192e55b006c299d94",
-            department: "Directing",
-            job: "Director",
-          },
-          {
-            adult: false,
-            gender: 2,
-            id: 2307079,
-            known_for_department: "Camera",
-            name: "Ben Braham Ziryab",
-            original_name: "Ben Braham Ziryab",
-            popularity: 0.6,
-            profile_path: null,
-            credit_id: "63db0ad63dc313009df219da",
-            department: "Camera",
-            job: "Director of Photography",
-          },
-        ],
-      },
-      videos: {
-        results: [
-          {
-            iso_639_1: "en",
-            iso_3166_1: "US",
-            name: "Prizefighter | 2022 | Movie Clip | Russell Crowe Boxing",
-            key: "0MoEDlOstC0",
-            site: "YouTube",
-            size: 1080,
-            type: "Clip",
-            official: true,
-            published_at: "2022-07-11T12:00:00.000Z",
-            id: "62cc31ce87a27a004f0e1a17",
-          },
-          {
-            iso_639_1: "en",
-            iso_3166_1: "US",
-            name: "UK Trailer",
-            key: "DSh3j_PtMMw",
-            site: "YouTube",
-            size: 1080,
-            type: "Trailer",
-            official: true,
-            published_at: "2022-06-17T16:04:55.000Z",
-            id: "62acac1fe92d830094607d9c",
-          },
-        ],
-      },
-    },
-  ];
-
-  //https://api.themoviedb.org/3/movie/943822?api_key={CastURL}&append_to_response=credits
-
-  // useEffect(() => {
-  //   const movieUrl = `${moviesURL}${id}?${API_KEY}&language=en-US`;
-  //   getMovie(movieUrl);
-  // }, []);
-
-  // useEffect(() => {
-  //   const movieUrl = `${moviesURL}${id}/credits?${CastURL}&language=en-US`;
-  //   getMovie(movieUrl);
-  // }, []);
-
-  //api_key=8ed200f50a6942ca5bc8b5cdec27ff22 Cast
-  //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
-  //https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+  useEffect(() => {
+    const tvUrl = `${detailURL}${id}?${API_KEY}&append_to_response=credits,videos`;
+    getMovie(tvUrl);
+  }, []);
 
   return (
     <Container>
-      {test.map((movie) => (
+      {movieDet.map((movie) => (
         <>
           <Background>
             <img
@@ -388,12 +109,12 @@ const Detail = () => {
 
               <VideosIfr>
                 {movie.videos.results.map((vd) => (
-                  <div>
+                  <div key={vd.key}>
                     <iframe
                       src={`https://www.youtube.com/embed/${vd.key}?controls=0`}
                       // width="700"
                       // height="409"
-                      frameborder="0"
+                      frameBorder="0"
                     ></iframe>
                   </div>
                 ))}

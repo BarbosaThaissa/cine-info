@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import ImgSlider from "../components/ImgSlider";
-import To from "../img/you-serie.jpg";
 import { Link } from "react-router-dom";
 import { MovieContext } from "../context/MovieContext";
 
-import Pretty from "../assests/ex-detales.jpg";
 
 const Movies = () => {
   const { PopularMovies } = useContext(MovieContext);
