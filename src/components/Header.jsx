@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 //icons
@@ -7,11 +7,16 @@ import HomeIcon from "../img/home.svg";
 import Search from "../img/search.svg";
 import Tv from "../img/tv.svg";
 import Film from "../img/film-reel.svg";
-import Plus from "../img/plus.svg";
 
-const Header = () => {
+const Header = ({ open, handleMenuClick }) => {
   return (
     <Nav>
+      <MenuIcon onClick={handleMenuClick}>
+        <MenuIconLine open={open}></MenuIconLine>
+        <MenuIconLine open={open}></MenuIconLine>
+        <MenuIconLine open={open}></MenuIconLine>
+      </MenuIcon>
+
       <Logo href="/">
         <h1>
           Cine<span>Info</span>
@@ -61,6 +66,40 @@ const Header = () => {
     </Nav>
   );
 };
+
+const MenuIcon = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+`;
+
+const MenuIconLine = styled.div`
+  width: 100%;
+  height: 2px;
+  background-color: #fafafa;
+  transition: transform 0.2s ease-in-out;
+
+  &:first-child {
+    transform: translateY(${(props) => (props.open ? "8px" : "0")})
+      rotate(${(props) => (props.open ? "45deg" : "0")});
+  }
+
+  &:nth-child(2) {
+    opacity: ${(props) => (props.open ? "0" : "1")};
+  }
+
+  &:last-child {
+    transform: translateY(${(props) => (props.open ? "-8px" : "0")})
+      rotate(${(props) => (props.open ? "-45deg" : "0")});
+  }
+`;
 
 const Nav = styled.nav`
   display: flex;
