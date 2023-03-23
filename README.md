@@ -103,7 +103,7 @@
 - [Styled Components](https://styled-components.com/)
 - [JavaScript](https://www.javascript.com/)
 - [React Router Dom](https://reactrouter.com/en/main)
-- [Vercel/Netlify](https://vercel.com/)
+- [Vercel](https://vercel.com/)
 - [Node.JS](https://nodejs.org/)
 - [Git and Github](https://git-scm.com/)
 
