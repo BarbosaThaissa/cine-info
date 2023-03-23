@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+<h1 align="center">CineInfo</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Status do Projeto: concluido :heavy_check_mark:
 
-## Available Scripts
+<img alt="" src="./src/assests/rainbow-readme.png" />
+### Tópicos
 
-In the project directory, you can run:
+:small_blue_diamond: [Layout](#🎨-layout)
 
-### `npm start`
+:small_blue_diamond: [Application Deploy](#🚀-application-deploy)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+:small_blue_diamond: [Project Description](#💻-project-description)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+:small_blue_diamond: [Functionalities](#🎓-functionalities)
 
-### `npm test`
+:small_blue_diamond: [Technologies](#🧰-technologies)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+:small_blue_diamond: [Prerequisites](#warning-prerequisites)
 
-### `npm run build`
+:small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+:small_blue_diamond: [Developers](#developers)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+:small_blue_diamond: [License](#memo-license)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img alt="" src="./src/assests/rainbow-readme.png" />
 
-### `npm run eject`
+## 🎨 Layout
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p aling="center">
+ <img alt="photo project" src="./src/assests/detalhes-pc.png" width="100%">
+ <img alt="photo project" src="./src/assests/part-video-pc.png" width="100%">
+ <img alt="photo project" src="./src/assests/home-mb.png" width="100%">
+ <img alt="photo project" src="./src/assests/menu-mb.png" width="100%">
+ <img alt="photo project" src="./src/assests/pesquisa-pc.png" width="100%">
+</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img alt="" src="./src/assests/rainbow-readme.png" />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚀 Application Deploy
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> Live Preview: https://certificates-for-everyone-womakerscode.netlify.app/
 
-## Learn More
+<img alt="" src="./src/assests/rainbow-readme.png" />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 💻 Project Description
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p align="justify">
 
-### Code Splitting
+**<h3>CineInfo:</h3>**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+ - It is a Web Application to see details of movies and series, such as cast, trailers, duration, etc.
 
-### Analyzing the Bundle Size
+ - The application is completely responsive for all types of screens. 
+ 
+ - It has 5 pages, Home, Details, Tv Series, Movies e Search.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+ - It was developed using mainly the following technologies: JavaScrips, React, React Router Dom, API do TMDB, Styled-Components and Vercel.
+   
+</p>
 
-### Making a Progressive Web App
+<img alt="" src="./src/assests/rainbow-readme.png" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🎓 Functionalities
 
-### Advanced Configuration
+*<h3>This application has:</h3>*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+ - **Page Home:**
 
-### Deployment
+   - :heavy_check_mark: The user can see 4 sliders with posters of popular movies and series.
+   - :heavy_check_mark: The user can have an overview of the application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+ - **Page Details:**
+   - *The user can see:*
+     - :heavy_check_mark: Original Title
+     - :heavy_check_mark: Gender
+     - :heavy_check_mark: Release Year
+     - :heavy_check_mark: Season Number
+     - :heavy_check_mark: Description
+     - :heavy_check_mark: Trailers
+     - :heavy_check_mark: Poster
+     - :heavy_check_mark: Cast
+     - :heavy_check_mark: Duration
 
-### `npm run build` fails to minify
+- **Page TV Series:**
+  - :heavy_check_mark: The user can see the series that are trending.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Page Movie:**
+  - :heavy_check_mark: The user can see the movies that are trending
+
+- **Page Search:**
+  - :heavy_check_mark: The user can search for the name of the movie or series and see the result on the screen.
+
+<img alt="" src="./src/assests/rainbow-readme.png" />
+
+## 🧰 Technologies
+
+*This project was developed with the following technologies:*
+
+- [React.JS](https://pt-br.reactjs.org/)
+- [API TMDB](https://www.themoviedb.org/)
+- [Styled Components](https://styled-components.com/)
+- [JavaScript](https://www.javascript.com/)
+- [React Router Dom](https://reactrouter.com/en/main)
+- [Vercel/Netlify](https://vercel.com/)
+- [Node.JS](https://nodejs.org/)
+- [Git and Github](https://git-scm.com/)
+
+<img alt="" src="./src/assests/rainbow-readme.png" />
+
+## :warning: Prerequisites
+
+- :warning: [Install Node](https://nodejs.org/en/download/)
+- :warning: [TMDB free key](https://www.themoviedb.org/)
+
+<img alt="" src="./src/assests/rainbow-readme.png" />
+
+## Como rodar a aplicação :arrow_forward:
+
+*In the terminal, clone the project:*
+
+```
+git clone https://github.com/BarbosaThaissa/cine-info
+npm install
+npm start
+```
+
+<img alt="" src="./src/assests/rainbow-readme.png" />
+
+## Developers :octocat:
+
+<br>
+
+| [<img src="https://avatars.githubusercontent.com/u/95388382?v=4" width=115><br><sub>Thaíssa Barbosa</sub>](https://github.com/BarbosaThaissa) |
+
+<img alt="" src="./src/assests/rainbow-readme.png" />
+
+## :memo: License
+
+*This project is under the MIT license*
+
+<p aling="center">
+ <img alt="Licence" src="https://img.shields.io/static/v1?label=license&message=MIT&color=AA26&labelColor=000000">
+</p>
+
+<img alt="" src="./src/assests/rainbow-readme.png" />
+
+**Copyright :copyright: 2023 - CineInfo**
+
+<img alt="" src="./src/assests/rainbow-readme.png" />
+
+Made with 💜 by myself : [My contact!] [contatothaissabarbosa@gmail.com]
