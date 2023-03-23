@@ -1,9 +1,10 @@
 <h1 align="center">CineInfo</h1>
 
-> Status do Projeto: concluido :heavy_check_mark:
+> Project Status: completed :heavy_check_mark:
 
 <img alt="" src="./src/assests/rainbow-readme.png" />
-### Tópicos
+
+## Topics
 
 :small_blue_diamond: [Layout](#🎨-layout)
 
@@ -17,7 +18,7 @@
 
 :small_blue_diamond: [Prerequisites](#warning-prerequisites)
 
-:small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
+:small_blue_diamond: [How to run the application](#how-to-run-the-application-arrow_forward)
 
 :small_blue_diamond: [Developers](#developers)
 
@@ -39,7 +40,7 @@
 
 ## 🚀 Application Deploy
 
-> Live Preview: https://certificates-for-everyone-womakerscode.netlify.app/
+> Live Preview: https://cineinfo.vercel.app/
 
 <img alt="" src="./src/assests/rainbow-readme.png" />
 
@@ -115,7 +116,7 @@
 
 <img alt="" src="./src/assests/rainbow-readme.png" />
 
-## Como rodar a aplicação :arrow_forward:
+## How to run the application :arrow_forward:
 
 *In the terminal, clone the project:*
 
