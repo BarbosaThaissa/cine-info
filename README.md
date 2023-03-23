@@ -6,21 +6,21 @@
 
 ## Topics
 
-:small_blue_diamond: [Layout](#🎨-layout)
+:small_blue_diamond: [Layout](#-layout)
 
-:small_blue_diamond: [Application Deploy](#🚀-application-deploy)
+:small_blue_diamond: [Application Deploy](#-application-deploy)
 
-:small_blue_diamond: [Project Description](#💻-project-description)
+:small_blue_diamond: [Project Description](#-project-description)
 
-:small_blue_diamond: [Functionalities](#🎓-functionalities)
+:small_blue_diamond: [Functionalities](#-functionalities)
 
-:small_blue_diamond: [Technologies](#🧰-technologies)
+:small_blue_diamond: [Technologies](#-technologies)
 
 :small_blue_diamond: [Prerequisites](#warning-prerequisites)
 
 :small_blue_diamond: [How to run the application](#how-to-run-the-application-arrow_forward)
 
-:small_blue_diamond: [Developers](#developers)
+:small_blue_diamond: [Developers](#developers-octocat)
 
 :small_blue_diamond: [License](#memo-license)
 
